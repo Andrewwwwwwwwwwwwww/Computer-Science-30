@@ -21,24 +21,25 @@ sq_surface = pygame.Surface((sqsize,sqsize))
 
 while True:
     for event in pygame.event.get():
-        while (y < (resy-sqsize))or(x < (resx-sqsize)):
-            sq(x,y)
-            col += 2
-            x += 2*sqsize
-            sq(x,y)
-            if ((resx-(col*sqsize)) < sqsize):
-                x = 0
-                col = 0
-                y += sqsize
-                row += 1
-                if ((row%2) == 1): #when row is odd
-                    x = sqsize
-                    col += 1
-                    
+
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-
+            
+    if (y < (resy-sqsize))or(x < (resx-sqsize)):
+        sq(x,y)
+        col += 2
+        x += 2*sqsize
+        sq(x,y)
+        if ((resx-(col*sqsize)) < sqsize):
+            x = 0
+            col = 0
+            y += sqsize
+            row += 1
+            if ((row%2) == 1): #when row is odd
+                x = sqsize
+                col += 1
+                    
 
     pygame.display.update()
  
@@ -50,4 +51,3 @@ while True:
 #     if ((resx-col*sqsize) <= sqsize):
 #         x = 0
 #         y += sqsize
-
