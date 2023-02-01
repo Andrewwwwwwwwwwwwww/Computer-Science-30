@@ -24,17 +24,13 @@ while True:
         while (y < (resy-sqsize))or(x < (resx-sqsize)):
             sq(x,y)
             col += 2
-            print(col)
             x += 2*sqsize
-            print(sqsize)
             sq(x,y)
             if ((resx-(col*sqsize)) < sqsize):
                 x = 0
                 col = 0
                 y += sqsize
                 row += 1
-                print(row)
-                print("new row")
                 if ((row%2) == 1): #when row is odd
                     x = sqsize
                     col += 1
@@ -54,3 +50,4 @@ while True:
 #     if ((resx-col*sqsize) <= sqsize):
 #         x = 0
 #         y += sqsize
+
