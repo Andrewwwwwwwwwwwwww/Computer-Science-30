@@ -1,0 +1,32 @@
+import pygame, sys
+from pygame.locals import QUIT
+
+pygame.init()
+resx = 1000
+resy = 1000
+DISPLAYSURF = pygame.display.set_mode((resx, resy))
+pygame.display.set_caption('Andrewwwwwwwwwwwwwwwwwwww')
+
+
+sq_surface = pygame.Surface((100,100))
+
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+            
+    DISPLAYSURF.fill(("white"))
+    DISPLAYSURF.blit(sq_surface,(0,0))
+    DISPLAYSURF.blit(sq_surface,(900,0))
+    DISPLAYSURF.blit(sq_surface,(0,900))
+    DISPLAYSURF.blit(sq_surface,(900,900))
+    
+    pygame.display.update()
+
+for i in range:
+    
+    
+
+def sq(x,y):
+    DISPLAYSURF.blit(sq_surface,(x,y))
