@@ -15,9 +15,11 @@ def sq(x,y):
     
 DISPLAYSURF = pygame.display.set_mode((resx, resy))
 pygame.display.set_caption('Andrewwwwwwwwwwwwwwwwwwww')
-DISPLAYSURF.fill("grey")
+DISPLAYSURF.fill((102,102,255))
 
 sq_surface = pygame.Surface((sqsize,sqsize))
+
+    
 
 while True:
     for event in pygame.event.get():
@@ -26,28 +28,29 @@ while True:
             pygame.quit()
             sys.exit()
             
-    if (y < (resy-sqsize))or(x < (resx-sqsize)):
-        sq(x,y)
-        col += 2
-        x += 2*sqsize
-        sq(x,y)
-        if ((resx-(col*sqsize)) < sqsize):
+#     if (y < (resy-sqsize))or(x < (resx-sqsize)):
+#         sq(x,y)
+#         col += 2
+#         x += 2*sqsize
+#         sq(x,y)
+#         if ((resx-(col*sqsize)) < sqsize):
+#             x = 0
+#             col = 0
+#             y += sqsize
+#             row += 1
+#             if ((row%2) == 1): #when row is odd
+#                 x = sqsize
+#                 col += 1
+
+    for i in range(10):
+        if i%2 == 1:
             x = 0
-            col = 0
-            y += sqsize
-            row += 1
-            if ((row%2) == 1): #when row is odd
-                x = sqsize
-                col += 1
+        else:
+            x = sqsize
+        for j in range(10):
+            sq(x,y)
+            x += 2*sqsize
+        y += sqsize
                     
 
     pygame.display.update()
- 
-
-# while (y < (resy-y))and(x < (resx-x)) :
-#     sq(x,y)
-#     col += 2
-#     x += 2*sqsize
-#     if ((resx-col*sqsize) <= sqsize):
-#         x = 0
-#         y += sqsize
