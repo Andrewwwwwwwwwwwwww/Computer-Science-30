@@ -1,0 +1,70 @@
+import pygame, sys
+from pygame.locals import QUIT
+
+pygame.init()
+resx = 1000
+resy = 1000
+sqsize = 100
+x = 0
+y = 0
+col = 0
+row = 0
+
+def sq(x,y):
+    DISPLAYSURF.blit(sq_surface,(x,y))
+    
+DISPLAYSURF = pygame.display.set_mode((resx, resy))
+pygame.display.set_caption('Andrewwwwwwwwwwwwwwwwwwww')
+DISPLAYSURF.fill((102,102,255))
+
+sq_surface = pygame.Surface((sqsize,sqsize))
+r = 51
+b = 255
+g = 153
+
+rf = 0
+bf = 153
+gf = 0
+
+def colour(x):
+    sq_surface.fill(x)
+    
+colour(r,g,b)
+
+while True:
+    for event in pygame.event.get():
+
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+            
+#     if (y < (resy-sqsize))or(x < (resx-sqsize)):
+#         sq(x,y)
+#         col += 2
+#         x += 2*sqsize
+#         sq(x,y)
+#         if ((resx-(col*sqsize)) < sqsize):
+#             x = 0
+#             col = 0
+#             y += sqsize
+#             row += 1
+#             if ((row%2) == 1): #when row is odd
+#                 x = sqsize
+#                 col += 1
+
+    for i in range(10):
+        if i%2 == 1:
+            x = 0
+        else:
+            x = sqsize
+        for j in range(10):
+            sq(x,y)
+            x += 2*sqsize
+            global colour=[int(r*(10-j)+rf*(10-j)),int(b*(10-j)+bf*(10-j)),int(g*(10-j)+gf*(10-j))]
+            print(colour)
+        y += sqsize
+                    
+
+    pygame.display.update()
+
+
