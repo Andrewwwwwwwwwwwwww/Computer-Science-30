@@ -1,0 +1,10 @@
+#doesn't quite work
+
+def FormatText(data): #cleans up the data
+    formatted_text = (str(data)).capitalize()
+    return formatted_text
+
+first_name, last_name = FormatText.(input("What's your first name?")), FormatText.(input("What's your last name?")) #gets user input
+
+
+print(f"Hello, {first_name} {last_name}!") #print stament
