@@ -1,0 +1,12 @@
+#Bad Guy  Pos: X, Y, HP, SPEED, INV: Coins, Potions
+Array = [[10,10], 100, 10, [30, 1]]
+
+Dictionary = {
+    "Position" : {10,10},
+    "Health" : 100,
+    "Speed" : 10,
+    "Inventory" : {"coins" : 10, "position" : 1}
+}
+
+print(Dictionary.get("Health"))
+print(Dictionary["Health"])
