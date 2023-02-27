@@ -10,4 +10,4 @@ class Enemy:
 
 
 enemy_1 = Enemy("Hunter", 700000000, -2, 0.1)
-enemy_1.speak("I think I might be gay")enemy_1.speak("I think I might be gay")
+enemy_1.speak("I think I might be gay")
