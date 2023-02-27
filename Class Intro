@@ -1,0 +1,13 @@
+class Enemy:
+    def __init__(self, name, hp, dmg, spd):
+        self.name = name
+        self.hp = hp
+        self.dmg = dmg
+        self.spd = spd
+        
+    def speak(self.sound):
+        return f'{self.name} says {sound}'
+
+
+enemy_1 = Enemy("Hunter", 700000000, -2, 0.1)
+enemy_1.speak("I think I might be gay")enemy_1.speak("I think I might be gay")
