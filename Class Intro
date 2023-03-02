@@ -17,10 +17,58 @@ class Enemy:
     
     def hp(self):
         return self.hp
+    
+    def checkHp(self):
+        if self.hp <= 0:
+            print("")
+    
+    
+class Hunter(Enemy):
+    def speak(self, sound = "zzzzzzzzzz"):
+        return super().speak(sound)
 
 
-enemy_1 = Enemy("Hunter", 700000000, -2, 0.1)
-print(enemy_1.speak("\"Hmm..\""))
+enemy_1 = Hunter("Hunter", 700000000, -2, 0.1)
+print(enemy_1.speak())
 
-enemy_1.damage(10)
+enemy_1.damage(100000000000)
+enemy_1.checkHp()
+
 print(enemy_1.hp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Dog:
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old"
+
+    def speak(self, sound):
+        return f"{self.name} says {sound}"
+    
+class Dog1(Dog):
+    
+    def speak(self, sound = "bark"):
+        return super().speak(sound)
+    
+
+Doggy = Dog1("Doggy", 4)
+print(Doggy.speak())
