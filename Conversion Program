@@ -1,0 +1,56 @@
+def binary_to_decimal(binary):
+    output = int(str(binary),2)
+    return output
+    
+def decimal_to_binary(dec):
+    output = bin(dec)[2:]
+    return output
+
+def hex_to_rgb(hex_code):
+    r = int(hex_code[0:2], 16)
+    g = int(hex_code[2:4], 16)
+    b = int(hex_code[4:6], 16)
+    return r, g, b
+
+def rgb_to_hex(rgb):
+    if rgb[0] > 255 or rgb[1] > 255 or rgb[2] > 255:
+        print("invaild value (too high)")
+        
+    elif rgb[0] < 0 or rgb[1] < 0 or rgb[2] < 0:
+        print("invaild value (too low)")
+        
+    else:
+        hex_code = "#{:02x}{:02x}{:02x}".format(*rgb) # {:02x}, formatting specifier that turns the corresponding value to hex. The '2' means the output has a minimum length of 2. 
+        return hex_code                               # The '0' means zero-padding if the number requires less then 2 digits
+                                                      # * unpacks the tuple (rgb)
+
+while True:
+    choice = int(input("Please select a conversion you wish to do\n\n1. Binary to Decimal \n2. Decimal to Binary \n3. Hex to RGB \n4. RGB to Hex \n"))
+    
+    if choice == 1:
+        starting_value = input("Please enter your binary value \n")
+        output = binary_to_decimal(starting_value)
+        print("{} = {}".format(starting_value,output))
+        print("\n")
+        
+    if choice == 2:
+        starting_value = int(input("Please enter your decimal value \n"))
+        output = decimal_to_binary(starting_value)
+        print("{} = {}".format(starting_value,output))
+        print("\n")
+
+    if choice == 3:
+        starting_value = str(input("Please enter your hex value \n"))
+        output = hex_to_rgb(starting_value)
+        print("{} = {}".format(starting_value,output))
+        print("\n")
+
+    if choice == 4:
+        input_value = input("Please enter your RGB value \n")
+        starting_value = [int(e) if e.isdigit() else e for e in input_value.split(',')]
+        output = rgb_to_hex(starting_value)
+        print("{} = {}".format(starting_value,output))
+        print("\n")
+        
+        
+        
