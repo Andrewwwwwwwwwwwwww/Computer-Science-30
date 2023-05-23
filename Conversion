@@ -37,28 +37,46 @@ def rgb_to_hex(rgb):
 
     
 
+saved_numbers = {}
+
 while True:
-    data_type = int(input("What is your starting data type?\n \n 1. Binary \n 2. Decimal \n 3. Hex \n 4. RGB \n"))
+    data_type = int(input("What is your starting data type?\n \n 1. Binary \n 2. Decimal \n 3. Hex \n 4. RGB \n 5. Access saved value \n"))
     
     if data_type == 1:
         binary = input("Please Enter your binary value \n")
         decimal = binary_to_decimal(binary)
         hex_code = decimal_to_hex(decimal)
         rgb = hex_to_rgb(hex_code)
-
+        print("Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb))
+        
+        save = int(input("\nWould you like to save this? \n 1. Yes \n 2. No \n"))
+        if save == 1:
+            saved_name = input("Please name this number \n")
+            saved_numbers[saved_name] = binary, decimal, hex_code, rgb
         
     if data_type == 2:
         decimal = input("Please Enter your decimal value \n")
         binary = decimal_to_binary(decimal)
         hex_code = decimal_to_hex(decimal)
         rgb = hex_to_rgb(hex_code)
+        print("Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb))
         
+        save = int(input("Would you like to save this? \n 1. Yes \n 2. No \n"))
+        if save == 1:
+            saved_name = input("Please name this number \n")
+            saved_numbers[saved_name] = binary, decimal, hex_code, rgb
         
     if data_type == 3:
         hex_code = input("Please Enter your Hex value \n")
         decimal = hex_to_decimal(hex_code)
         binary = decimal_to_binary(decimal)
         rgb = hex_to_rgb(hex_code)
+        print("Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb))
+        
+        save = int(input("Would you like to save this? \n 1. Yes \n 2. No \n"))
+        if save == 1:
+            saved_name = input("Please name this number \n")
+            saved_numbers[saved_name] = binary, decimal, hex_code, rgb
         
     if data_type == 4:
         rgb = input("Please Enter your RGB value \n")
@@ -66,5 +84,14 @@ while True:
         hex_code = rgb_to_hex(starting_value)
         decimal = hex_to_decimal(hex_code[1:])
         binary = decimal_to_binary(decimal)
+        print("Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb))
         
-    print(binary, decimal, hex_code, rgb)
+        save = int(input("Would you like to save this? \n 1. Yes \n 2. No \n"))
+        if save == 1:
+            saved_name = input("Please name this number \n")
+            saved_numbers[saved_name] = binary, decimal, hex_code, rgb
+        
+    if data_type == 5:
+        for keys, values in saved_numbers.items():
+            print(keys, values)
+            
