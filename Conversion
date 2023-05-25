@@ -1,3 +1,5 @@
+import os
+
 def binary_to_decimal(binary):
     output = int(str(binary),2)
     return output
@@ -35,9 +37,21 @@ def rgb_to_hex(rgb):
         return hex_code                               # The '0' means zero-padding if the number requires less then 2 digits
                                                       # * unpacks the tuple (rgb)
 
-    
-
+saved_file = "Saved_values.txt"
 saved_numbers = {}
+
+def load_saved_values():
+    with open(saved_file, "r") as f:
+        contents = f.read()
+    saved_numbers.update(eval(contents))
+    
+def save_to_file():
+    with open(saved_file, "w") as f:
+        f.write(str(saved_numbers))
+
+
+if os.path.isfile(saved_file):
+    load_saved_values()
 
 while True:
     data_type = int(input("What is your starting data type?\n \n 1. Binary \n 2. Decimal \n 3. Hex \n 4. RGB \n 5. Access saved value \n"))
@@ -53,6 +67,7 @@ while True:
         if save == 1:
             saved_name = input("Please name this number \n")
             saved_numbers[saved_name] = "Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb)
+            save_to_file()
         
     if data_type == 2:
         decimal = input("Please Enter your decimal value \n")
@@ -65,6 +80,7 @@ while True:
         if save == 1:
             saved_name = input("Please name this number \n")
             saved_numbers[saved_name] = "Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb)
+            save_to_file()
         
     if data_type == 3:
         hex_code = input("Please Enter your Hex value \n")
@@ -77,6 +93,7 @@ while True:
         if save == 1:
             saved_name = input("Please name this number \n")
             saved_numbers[saved_name] = "Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb)
+            save_to_file()
         
     if data_type == 4:
         rgb = input("Please Enter your RGB value \n")
@@ -90,9 +107,9 @@ while True:
         if save == 1:
             saved_name = input("Please name this number \n")
             saved_numbers[saved_name] = "Binary: {} Int: {} Hex: {} RGB: {}".format(binary, decimal, hex_code, rgb)
+            save_to_file()
         
     if data_type == 5:
         for keys in saved_numbers.items():
             print(keys)
-            
-            
+    
